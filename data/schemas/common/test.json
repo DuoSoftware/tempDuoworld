@@ -1,0 +1,10 @@
+{
+	"namespace":"common",
+	"class":"test",
+	"type" : "dynamic",
+	"entity" : {
+		"ID" : {"dataType":"string", "isNull": false, "isPrimary": true, "length":10},
+		"Title" : {"dataType":"string", "isNull" : false, "default":"Test Title"},
+		"Age" : {"dataType": "number", "isNull" : false,"min":20, "max":80}
+	}
+}

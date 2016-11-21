@@ -1,0 +1,112 @@
+<div class="card-container" style="padding:20px;padding-top:58px;padding-left:20px; padding-right:20px;">
+	<!--WHITEFRAME START-->
+	<div layout layout-align="center center" style="margin:0 auto;max-width:960px"> 
+		<div layout="row" style="width:100%;background:white;border-radius:0px 0px 2px 2px">
+			<md-autocomplete flex style="z-index:1; background: #FDFDFD;" ng-keypress="enter($event,ctrl.searchText)" ng-disabled="$root.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search Group By Name">
+		</md-autocomplete>
+		<md-button aria-label="Open demo menu" class="md-icon-button" style="width:48px;border-radius: 0;background: #ff4081;" ng-click="createGroup()">
+		    <md-tooltip md-direction="left">Create User Group</md-tooltip>
+		    <md-icon md-svg-icon="/img/ic_add_24px.svg" style="fill:white"></md-icon>
+	    </md-button>
+        </div>
+    </div>
+<!--WHITEFRAME END-->
+</div>
+
+<div style="margin:0 auto;max-width:960px;padding-left:20px; padding-right:20px;"> 
+	<div layout="row" layout-align="center center" style="margin-top:25%" ng-if="getallgroup.length <= 0">
+		<h1>Please add a Group</h1>
+	</div>
+	<div style="position: fixed;bottom: 50%;right: 50%;z-index:2000;margin:-68px;" ng-show="loading">
+		<md-progress-circular md-mode='indeterminate' md-diameter="150"></md-progress-circular>
+	</div>
+	
+	<div ng-repeat="getgroup in getallgroup | orderBy:'groupname' | filter:ctrl.searchText || undefined track by getgroup.groupId">
+	
+	<!--START OF COLLAPSE CARDS-->
+	<div  class="collapse-card"  ng-class="{'active': toggles[$index]}">  <!-- get user group -->
+
+		<!--START OF COLLAPSE CARD HEADING| filter:ctrl.actionSearchText||undefined-->
+		<div class="collapse-card__heading" layout="row" layout-align="start start" >
+			<!--END OF CARD CONTROLS SECTION-->
+		
+			<div class="collapse-card_header_content_controls" flex="10" layout="column" layout-align="center start">
+				<img src="{{getCatLetter(getgroup.groupname)}}" style="margin-top:8px;border-radius:20px"/>				
+			</div>
+			
+			<!--START OF CARD OPEN SECTION-->
+			<div class="collapse-card_header_content_info" layout="row" layout-align="center start" flex="80" ng-click="toggleOne($index);">
+				<!--<div flex="10" style="padding: 6px 5px 2px;"><img ng-src="{{getCatLetter(getgroup.groupname)}}" style="margin-top:8px;border-radius:20px"/></div>-->
+				<div flex="100">
+					<h4 class="collapse-card__title">
+						<span class="s"><label hide-sm></label>{{getgroup.groupname}}</span> 
+						<!-- get group name -->
+					</h4>
+				</div>
+			</div>
+			<!--END OF CARD OPEN SECTION-->
+
+			<!--START OF CARD CONTROLS SECTION-->
+			<div class="collapse-card_header_content_controls" flex="10" layout="column" layout-align="center center">
+				<md-menu md-position-mode="target-right target">
+				<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+				<md-icon md-svg-icon="img/ic_more_vert_24px.svg"></md-icon>
+			</md-button>
+			<md-menu-content width="4">
+			<md-menu-item>
+			<md-button ng-click="addNewUsersToGroup(getgroup,$event)">
+			<div layout="row">
+				<p flex>Add New User To Group</p>
+				<md-icon md-svg-icon="img/ic_account_box_24px.svg"></md-icon>
+			</div>
+		</md-button>
+	</md-menu-item>
+	<md-menu-item>
+	<md-button ng-click="removeGroup(getgroup, $event)">
+	<div layout="row">
+		<p flex>Remove Group</p>
+		<md-icon md-svg-icon="img/ic_account_box_24px.svg"></md-icon>
+	</div>
+</md-button>
+</md-menu-item>
+</md-menu-content>
+</md-menu>
+</div>
+<!--END OF CARD CONTROLS SECTION-->
+</div>
+<!--END OF COLLAPSE CARD HEADING-->
+
+<!--START OF CARD BODY-->
+<div class="collapse-card__body">
+	<form id="form" name="editForm">
+		<md-content>
+		<md-list ng-if="selected.length && getgroup.users.length" style="padding: 8px 19px 8px 0px;background-color: beige;">
+		<md-list-item >
+		<p></p>
+		<md-button class="md-secondary md-icon-button" ng-click="deleteSelectedUser(getgroup, $event)" >
+		<md-icon md-svg-icon="img/ic_delete_24px.svg"></md-icon>
+	</md-button>
+</md-list-item>
+</md-list>    
+<md-list ng-if="!getgroup.users.length" style="background-color: bisque">	    
+<md-list-item >
+<p> There is a no user Add New User to the group</p>
+<md-button class="md-secondary md-raised md-primary" ng-click="addNewUsersToGroup(getgroup,$event)">Add User</md-button>
+</md-list-item>
+</md-list>
+<md-list>
+<md-list-item ng-repeat="user in getgroup.users">
+<p>{{user}}</p>
+<md-checkbox class="md-primary" ng-checked="exists(user, selected)" ng-click="toggle(user, selected)"></md-checkbox>
+</md-list-item>
+</md-list>
+</md-content>
+</form>
+</div>
+<!--END OF CARD BODY-->
+</div>
+<!--END OF COLLAPSE CARDS-->
+</div>
+</div>
+
+

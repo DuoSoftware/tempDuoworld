@@ -1,0 +1,10 @@
+{
+	"namespace":"duoworld.duoweb.info",
+	"class":"application",
+	"type" : "static",
+	"entity" : {
+		"ApplicationID" : {"dataType":"string", "isNull": false, "isPrimary": true, "length":10},
+		"Title" : {"dataType":"string", "isNull" : false, "default":"Test Title"},
+		"Age" : {"dataType": "number", "isNull" : true,"min":20, "max":80}
+	}
+}

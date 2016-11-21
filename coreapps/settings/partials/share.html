@@ -1,0 +1,76 @@
+<div class="card-container" style="padding:20px;padding-top:58px;">
+	<!--WHITEFRAME START-->
+	<div layout layout-align="center center" style="margin:0 auto;max-width:960px"> 
+		<div layout="row" style="width:100%;background:white;border-radius:0px 0px 2px 2px">
+		  <div layout="row" layout-align="start center" style="padding:8px; 10px; 10px;">
+			 <img ng-src="/img/material_alperbert/avatar_tile_n_28.png"  class="md-avatar" style="border-radius:20px"/>
+			 <div style="font-weight: bold;" hide-xs>&nbsp;&nbsp;Navigation Menu&nbsp;&nbsp;</div>
+			 <md-button ui-sref="main.shareApps" class="md-primary">Share apps</md-button>
+			 <div>&nbsp;&nbsp;>&nbsp;&nbsp;</div>
+	         <div>{{name}}</div>          
+		  </div>
+        </div>
+    </div>
+<!--WHITEFRAME END-->
+</div>
+
+<div style="margin:0 auto;max-width:960px;padding-left:20px; padding-right:20px;">
+	<div layout="row" layout-align="start start" style="background-color: #fff;border-bottom: 1px solid #DDD;border-left: 1px solid #DDD;border-right: 1px solid #DDD;border-radius: 3px;">
+		<div flex="80">
+			<div drop="onDropOne($data, $event)" drop-effect="copy" drop-accept="'json/custom-object'" drag-over="onDragOver($event)" drag-over-class="drag-over-accept">
+				<div layout="row" layout-wrap style="margin-top:20px;">
+					<div layout layout-sm="row" layout-margin layout-wrap style="background: #f9f9f9; border: 1px dashed #ddd; min-height: 220px; width: 687px;">
+						<div ng-show="selected.length<1" layout="row" layout-align="center center" flex>
+						<p style="font-size:64px; color:#efefef">Drop User Here</p>
+						</div>
+						<md-list ng-repeat="user in selected">
+						<md-list-item style="padding-left: 5px; background: #fff; border-radius:2px; border: 1px solid rgba(0,0,0,0.25); box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);">
+						<img ng-src="{{getCatLetter(user.name)}}"  class="md-avatar"/>
+						<p>{{user.name}}</p>
+						<md-button class="md-icon-button launch" ng-click="deleteApp($event,user)" aria-label="delete">
+						<md-icon md-svg-icon="img/ic_close_24px.svg" style="height:14px;"></md-icon>
+					</md-button>
+				</md-list-item>
+			</md-list>
+		</div>
+	</div>
+</div> 
+<div layout="row" layout-align="center center" style="min-width: 718px;">
+	<md-button class="md-raised md-primary" ng-click="shareUser(selected)">Update</md-button>
+</div>
+</div> 
+
+<div layout="column" layout-align="center center" flex="33" flex-md="33" flex-sm="22">
+<md-tabs md-dynamic-height md-border-bottom style="min-width: 197px;" >
+      <md-tab label="User">
+        <md-content class="md-padding" style="overflow:auto; max-height:400px; min-width:194px;">
+           <md-list>
+            <div layout="row" layout-sm="column" layout-align="space-around" style="padding-top:40px;" ng-show="loading">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <md-list-item  ng-repeat="s in getSharableuserAndGroup | filter:{Type:'User'} " draggable-data="s" style="cursor:move;padding-left: 5px; background: #fff; border-radius:2px; border: 1px solid rgba(0,0,0,0.25); box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);" draggable="true" effect-allowed="copy" draggable-type="custom-object">
+            <img ng-src="{{getCatLetter(s.Name)}}" class="md-avatar"/>
+            <p hide-xs>{{s.Name}}</p>
+            </md-list-item>
+          </md-list>
+          
+        </md-content>
+      </md-tab>
+      <md-tab label="Group">
+        <md-content class="md-padding" style="overflow:auto;max-height:400px;min-width: 194px;">
+        <md-list style="max-width: 194px;">
+        <div layout="row" layout-sm="column" layout-align="space-around" style="padding-top:40px;" ng-show="loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+                <md-list-item  ng-repeat="s in getSharableuserAndGroup | filter:{Type:'Group'}" draggable-data="s" style="cursor:move;padding-left: 5px; background: #fff; border-radius:2px; border: 1px solid rgba(0,0,0,0.25); box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);" draggable="true" effect-allowed="copy" draggable-type="custom-object">
+                <img ng-src="{{getCatLetter(s.Name)}}" class="md-avatar"/>
+                <p hide-xs class="truncate">{{s.Name}}</p>
+                </md-list-item>
+            </md-list>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+</div>
+
+</div>
+</div>

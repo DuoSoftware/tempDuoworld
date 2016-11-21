@@ -1,0 +1,68 @@
+<md-dialog aria-label="Tips" style="width:80%"  ng-cloak>
+  <form name="editForm" ng-submit="submit()">
+  <md-toolbar style="min-height:180px;background:#004682">
+    <div class="md-toolbar-tools" style="height: 45px;">
+      <h2></h2>
+      <span flex></span>
+		<md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+			<md-icon md-svg-src="/img/ic_close_24px.svg" style="width:30px;" ></md-icon>
+		  </md-button>
+	</div>
+    
+	<div class="md-toolbar-tools">
+	    <div layout="column" flex="70" style="margin-left: 20px;">
+	         <div layout="row" layout-align="start center"> <img id="userProfilePic" src="img/duoworld.png" style=" border-radius: 100px; height:56px;width:56px;"> <span style="font-size:30px;margin-left: 20px;">{{appDetails.name}}</span></div>
+             <span style="font-size:20px;margin-top:20px">Payment Methods</span>
+        </div>
+      <span flex style="font-size: 45px;">{{appDetails.price | currency}}</span>
+
+	  <md-button class="md-fab" aria-label="add" style="margin-right: 12.5% !important;margin-top: 208px !important;background:#db4437" ng-click="newCard($event)">
+		<md-icon md-svg-src="/img/ic_add_24px.svg" style="width:30px;" ></md-icon>
+		<md-tooltip md-direction="bottom">Add Card</md-tooltip>
+	  </md-button>
+	
+    </div>
+
+  </md-toolbar>
+  <md-dialog-content style="max-height:810px;">
+
+        <div layout="row" layout-align="space-around center" style="padding-top:0px;padding-bottom:5px;font-weight:700;font-size:16px">
+			<div flex="30" layout="row" layout-align="start center" style="padding-left: 20px"><div style="height:40px;"></div><span>Credit Card</span></div>
+			<span flex="30" style="width:250px">Name on Card</span>
+			<span flex style="width:250px">Expires On</span>
+			<span flex style="width:200px"></span>
+		</div>
+		<md-divider></md-divider>
+		<md-list>
+			<md-list-item layout="row" layout-align="space-around center" class="cards" id="card{{$index}}" style="padding-top:5px;" ng-repeat="card in account.AccountCards" ng-click="selectCard($index, card)">
+				<div flex="30" layout="row" layout-align="start center" style="width:200px"><img style="height:40px;" ng-src="{{card.cardImage}}"/><span style="margin-left:10px">{{card.CardNo | hideNumbers}}</span></div>
+				<span flex="30" style="width:250px">{{card.Name}}</span>
+				<span flex style="width:250px">{{card.ExpiryMonth}}/{{card.ExpiryYear}}</span>
+				<span flex style="width:200px"><a href="" ng-click="editCard($event, card);$event.stopPropagation()">Edit</a><a href="" style="margin-left:20px;" ng-click="cardOperations('Default');$event.stopPropagation()">Make Default</a></span>
+			</md-list-item>
+		</md-list>
+    	<md-divider></md-divider>
+  </md-dialog-content>
+  	
+  <md-dialog-actions layout="row" layout-align="space-between center">
+	<div layout="column" layout-align="start start">
+		<div layout="row"><md-checkbox flex ng-model="agree" aria-label="agreement" class="md-warn md-align-top-left" style="margin-top: 10px;" required>
+			<span>
+				I agree and I am willing to associate my account registration with the
+			</span>
+		</md-checkbox>
+		<a href="" style="margin-top: 11px;margin-left: 4px;" ng-click="showAgreement($event)"> Duo Cloud Charge agreement.</a></div>
+		<div style="font-size: 12px;margin-bottom:10px">Powered by Cloud Charge</div>
+	</div>
+	<span flex></span>
+	<div layout="row" layout-align="end end">
+		<md-button ng-click="cancel()" >
+		 Cancel
+		</md-button>
+		<md-button type="submit" class="md-raised md-primary" ng-disabled="disablePayBtn" style="margin-right:20px;" >
+		  Make Payment
+		</md-button>
+	</div>
+  </md-dialog-actions>
+  </form>
+</md-dialog>

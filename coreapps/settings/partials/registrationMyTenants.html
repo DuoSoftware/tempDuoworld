@@ -1,0 +1,81 @@
+	<!--CARD CONTAINER START-->
+	<div class="card-container" style="padding:20px;padding-top:70px;">
+		<!--WHITEFRAME START-->
+		<md-whiteframe class="md-whiteframe-2dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout="column" layout-align="center center" style="margin:0 auto;max-width:960px">
+			<md-content layout-padding style="width:100%">
+				<div layout-gt-sm="row">
+					<section-title title="Tenant Details"></section-title>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Tenant Name</label>
+						<input required name="tenantName" ng-model="tenant.name"  ng-pattern="/^\S*$/"  ng-required="true"/>
+						<div ng-messages="editForm.tenantName.$error" role="alert">
+							<div ng-message="required">
+								Tenant name is required.
+							</div>
+							<div ng-message="pattern">
+								Tenant name cannot contain whitespaces.
+							</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Company Name</label>
+						<input required name="companyName" ng-model="tenant.company">
+						<div ng-messages="editForm.companyName.$error">
+							<div ng-message="required">This is required.</div>
+						</div>
+					</md-input-container>
+					
+
+				</div>
+				<div layout-gt-sm="row">
+					<section-title></section-title>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Tenant Type</label>
+						<md-select ng-model="tenant.type">
+							<md-optgroup label="Select Tenant Type">
+								<md-option  value="dev" flex >Developer</md-option>
+								<md-option  value="com" flex >Company</md-option>
+							</md-optgroup>
+						</md-select>
+					</md-input-container>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Access Level</label>
+						<md-select ng-model="tenant.accessLevel">
+							<md-optgroup label="Select Tenant Type">
+								<md-option  value="public" flex >Public</md-option>
+								<md-option  value="private" flex >Private</md-option>
+							</md-optgroup>
+						</md-select>
+					</md-input-container>
+				</div>
+				
+				<div layout-gt-sm="row">
+					<section-title></section-title>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Business Model</label>
+						<md-select ng-model="tenant.businessModel">
+							<md-optgroup label="Select Tenant Type">
+								<md-option ng-value="model.value" ng-repeat="model in businessModels">{{model.name}}</md-option>
+							</md-optgroup>
+						</md-select>
+					</md-input-container>
+					<md-input-container class="md-block" flex-gt-sm>
+					</md-input-container>
+				</div>
+				
+				<div layout="row" layout-align="space-between center" ng-init="submitted=false" >
+					<md-checkbox ng-if="tenant.type == 'dev'" flex ng-model="agree" aria-label="agreement" class="md-warn md-align-top-left" required>
+						<span>I agree and I am willing to associate my account registration with<a href="" style="text-decoration:none" ng-click="openTermsAndConditions($event);$event.stopPropagation()"> Duo Cloud Charge agreement.</a></span>
+					</md-checkbox>
+					<div ng-if="!tenant.type || tenant.type == 'com'"></div>
+					
+					<md-button class="md-raised md-primary" style="width:100px; margin-left:20px !important" type="submit" ng-disabled="submitted" aria-label="submit" ><span ng-if="tenant.type == 'com'">Next</span><span ng-if="tenant.type != 'com'">Submit</span></md-button>
+				</div>
+				
+			</md-content>
+			<!--FORM START-->
+			
+		</md-whiteframe><br><br>
+		<!--WHITEFRAME END-->
+	</div>
+	<!--CARD CONTAINER END-->

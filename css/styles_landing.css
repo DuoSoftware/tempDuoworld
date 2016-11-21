@@ -1,0 +1,260 @@
+/*
+ * Template: Duo World Landing Page
+ * Author: Shamil Weerakoon
+ * Author URI: http://www.benworldwide.com
+ */
+
+@font-face {
+    font-family: 'proximanova_light';
+    src: url('../fonts/proximanova-light-webfont.eot');
+    src: url('../fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-light-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-light-webfont.woff') format('woff'),
+         url('../fonts/proximanova-light-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-light-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proximanova_regular';
+    src: url('../fonts/proximanova-regular-webfont.eot');
+    src: url('../fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-regular-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('../fonts/proximanova-regular-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'proximanova_regular', Arial, sans-serif;
+	font-size: 100%;
+}
+a {
+	text-decoration: none;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+	border: 1px solid #eee;
+	padding: 0.8em 2em;
+}
+
+.clearfix {
+	overflow: hidden;
+}
+.clearfix:after {
+	clear: both;
+	content: '';
+	display: block;
+	height: 0;
+}
+
+.col-12 { width: 100%; }
+.col-6 	{ width: 50%; }
+.col-4 	{ width: 33.33%; }
+.col-3 	{ width: 25%; }
+
+#btn-wrapper {
+	margin: 0 auto;
+	overflow: hidden;
+	width: auto;
+}
+.btn {
+	background: #e64a19;
+	border: none;
+	border-radius: 1.6em;
+	color: #fff;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 0.8em 3em;
+}
+
+.login, .ghost {
+	border: 1px solid #e64a19;
+	font-size: 0.9em;
+	margin: 1em 0.5em;
+	position: relative;
+}
+.ghost 	{ background: none; }
+.login 	{ color: #fff; }
+.ghost 	{ color: #e64a19; }
+
+.block {
+	padding: 4em 1em 1em 0;
+	width: auto;
+}
+.content {
+	/* background: #0072A6; */
+	background: #FFFFFF;
+	/* color: #fff; */
+	color: rgba(0,0,0,0.8);
+}
+
+.content h1 {
+	font-family: 'proximanova_light', sans-serif;
+	font-size: 3em;
+	font-weight:300;
+}
+ul.app-details {
+  padding-left: 20px;
+}
+.content ul.app-details li {
+	font-family: 'proximanova_light', sans-serif;
+	font-size: 1.2em;
+	line-height: 2em;
+	list-style: none;
+}
+.content ul.app-details li:before {
+	background: url('../images/list-arrow.png') no-repeat top center;
+	background-size: contain;
+	content: '';
+	float: left;
+	display: block;
+	height: 10px;
+	margin-left: -20px;
+	margin-top: 15px;
+	width: 10px;
+}
+
+.left  { float: left }
+.right { float: right }
+
+#mac-image{
+	width: 100%;
+}
+#logo-wrapper {
+	text-align: left;
+}
+#logo {
+	margin: 0 auto;
+	max-width: 290px;
+}
+
+footer {
+	background: rgb(23,30,34);
+	position: relative;
+	z-index: 0;
+}
+footer::after {
+  background: url('../images/footer-bg.jpg') no-repeat bottom center;
+	background-size: cover;
+  bottom: 0;
+  content: "";
+  left: 0;
+  right: 0;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+footer .row-top {
+	overflow: hidden;
+	padding: 2em;
+}
+footer .row-top .nl-wrapper {
+	margin: 1em;
+	overflow: hidden;
+	text-align: center;
+	width: auto;
+}
+footer .row-top .nl-fld-email { 
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #aaa;
+	color: #1de9b6;
+	display: block;
+	font-size: 2em;
+	margin: 0 auto 1em;
+	max-width: 490px;
+	padding: 0.5em 2em;
+	text-align: center;
+	width: 80%;
+}
+footer .row-top .nl-fld-submit {
+	margin: 0 auto;
+	padding: 0.8em 4em;
+}
+
+footer .row-top .contact-info {
+	color: #ddd;
+	line-height: 1.8em;
+	padding: 1em 1.5em;
+	text-align: center;
+}
+footer .row-top .contact-info a {
+	color: #ddd;
+}
+footer .row-top h3 {
+	color: rgba(255,255,255,.54);
+	font-size: 1.7em;
+	font-weight: 300;
+	margin: 0 0 0.5em;
+	text-transform: uppercase;
+}
+footer .social-icons {
+	margin: 1em auto;
+	max-width: 185px;
+	overflow: hidden;
+}
+footer .social-icons a {
+	display: inline-block;
+	margin: 0 0.5em;
+}
+footer .social-icons a .fa {
+	color: rgba(255,255,255,.54);
+	font-size: 1.3em;
+}
+
+footer .row-bottom {
+	background-color: rgba(14,19,21,0.5);
+	color: #CECECE;
+	font-size: 0.75em;
+	opacity: 0.5;
+	padding: 2.5em 1em;
+	text-align: center;
+}
+footer .row-bottom a {
+	color: #CECECE;
+}
+
+::-webkit-input-placeholder { color: #1de9b6; font-weight: 300; }
+:-moz-placeholder { color: #1de9b6; font-weight: 300; }
+::-moz-placeholder { color: #1de9b6; font-weight: 300; }
+:-ms-input-placeholder { color: #1de9b6; font-weight: 300; }
+
+@media only screen and (max-width: 640px) {
+	.col-12, .col-6, .col-4, .col-3 { 
+		display: block;
+		width: auto;
+	}
+	.left, .right {
+		float: none;
+	}
+	.col-6:first-child > .block {
+		padding: 1em;
+	}
+	.content ul.app-details li {
+    line-height: 1.5em;
+    margin-bottom: 0.5em;
+	}
+	#btn-wrapper {
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	footer .row-top .nl-fld-email {
+		font-size: 1.2em;
+		padding:0.5em 1em;
+	}
+}

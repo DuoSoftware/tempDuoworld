@@ -1,0 +1,33 @@
+<md-dialog aria-label="Mango (Fruit)" style="max-width:960px;">
+<div style="width:800px;">
+  <form>
+    <md-dialog-content>
+    <div>
+      <div layout layout-sm="column" layout-margin>
+        <div flex="5">
+          <img src="img/material alperbert/avatar_tile_l_28.png" style="margin-top:22px;border-radius:20px"/>
+        </div>
+        <div flex="20" style="margin-top:35px;">
+          <label style="font-weight:700">Ledger Details</label>
+        </div>
+        <md-input-container flex>  
+        <label>Description</label>
+        <input ng-model="data.Description[0].Description" name="" readonly="readonly">
+      </md-input-container>
+    </div>
+  </div>
+</md-dialog-content>
+<div class="md-actions" layout="row">
+    <!-- <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
+      More on Wikipedia
+    </md-button> -->
+    <span flex></span>
+    <md-button ng-click="answer('not useful')" class="md-primary">
+    Close
+  </md-button>
+    <!-- <md-button ng-click="answer('useful')" class="md-primary">
+  </md-button> -->
+</div>
+</form>
+</div>  
+</md-dialog>

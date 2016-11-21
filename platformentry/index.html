@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="platformEntryModule">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width">
+	<title>DuoWorld</title>
+	<meta name="version" description="1.0.1">
+	<link rel="shortcut icon" href="dw-favicon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="/bower_components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="platformentry-styles.css">
+	
+
+</head>
+<body id="platformentry-container" layout="column" layout-align="center center" ng-cloak>
+
+
+	<md-content layout="column" style="background:transparent;width:100%">
+		<div ui-view></div>
+	</md-content>
+
+
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="/bower_components/angular-material/angular-material.min.js"></script>
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+	<script src="/uimicrokernel/uimicrokernel.js"></script>
+	<script type="text/javascript" src="/js/angular-recaptcha/release/angular-recaptcha.js"></script>
+	<script type="text/javascript" src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+	
+	
+	<script src="platformentry.js"></script>
+	
+</body>
+</html>

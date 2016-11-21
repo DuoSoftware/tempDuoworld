@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/../bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" type="text/css" href="/../css/child_app_styles.min.css">
+  <link rel="stylesheet" href="/../css/directive_library.css">
+  <style type="text/css">
+  </style>
+</head>
+
+<style type="text/css">
+
+  md-toolbar{
+    min-height: 30px;
+    font-size: 16px;
+  }
+
+
+  tr{
+    border-bottom: 1px solid #efefef; 
+  }
+
+  .totalspan{
+    color:white; 
+    font-size:22px;
+  }
+
+  .totalValue{
+    margin-top:12px;
+    color:white;
+    font-size:50px;
+  }
+
+  .totalValue1{
+    margin-top:21px;
+    color:white;
+    font-size:50px;
+  }
+
+  .p{
+    font-size:15px;
+  }
+
+  .b{
+    font-size:24px;
+  }
+
+  @media screen and (max-width: 979px){
+
+    .totalspan{
+      font-size:17px;
+    }
+
+    .totalValue{
+      font-size:45px;
+    }
+
+    .totalValue1{
+      font-size:45px;
+    }
+
+    .p{
+      font-size:12px;
+    }
+
+    .b{
+      font-size:22px;
+    }
+
+  }
+
+  @media screen and (max-width: 799px){
+
+    .totalspan{
+      font-size:15px;
+    }
+
+    .totalValue{
+      font-size:40px;
+    }
+
+    .totalValue1{
+      font-size:40px;
+
+    }
+
+    .p{
+      font-size:10px;
+    }
+
+    .b{
+      font-size:15px;
+    }
+
+  }
+
+  @media screen and (max-width: 598px){
+
+   .totalspan{
+    color:white; 
+    font-size:22px;
+  }
+
+  .totalValue{
+    margin-top:12px;
+    color:white;
+    font-size:50px;
+  }
+
+  .totalValue1{
+    font-size:50px;
+
+  }
+
+  .p{
+    font-size:15px;
+  }
+
+  .b{
+    font-size:24px;
+  }
+
+}
+
+.card-container{
+  animation:fromBottom 1.6s 1;
+  -webkit-animation:fromBottom 1.6s 1;
+}
+
+
+</style>
+
+<body ng-cloak ng-controller="appctrl" >
+  <!--Background banner with parallax effect-->
+  <md-background-banner color="#3F51B5" height="300px"></md-background-banner>
+  <!--START OF ALL CONTENT-->
+  <div id="md-childApp-contentContainerSection" >
+    <!--START OF FIRST CARD CONTAINER-->
+    <div class="card-container" style="padding-top:20px;">
+      <div class="span12 ui-view-container">
+        <div layout="row" layout-sm="column" layout-fill layout-padding>
+          <div flex>
+            <md-card style="height:330px;">
+            <md-card-content style="background:#465661;height:23px;">
+            <span style="margin-top:5px;color:#fff;font-size:18px;">MY BILLING INFO</span>
+          </md-card-content>
+          <md-content flex>
+          <div layout="column" layout-sm="column" layout-padding style="margin-top:5px;"> 
+      <!--     <md-select flex placeholder="Select Account No" ng-model="acc">
+          <md-option ng-value="acc" ng-repeat="acc in AccountOwern" ng-click="clickAccountNo()">{{acc.AccountId}}</md-option>
+        </md-select> -->
+        <md-input-container flex>
+        <label>Account No</label>
+        <input ng-model="AccountOwern[0].AccountId" name="" readonly="readonly">
+      </md-input-container>
+    </div>
+    <div>
+      <div layout="row" layout-sm="column" layout-padding>
+       <md-input-container flex>
+       <label>Billing Address</label>
+       <input ng-model="AccountOwern[0].BillingAddress" name="" readonly="readonly">
+     </md-input-container>
+   </div>
+   <div layout="row" layout-sm="column" layout-padding>
+    <md-input-container flex>
+    <label>Shipping Address</label>
+    <input ng-model="AccountOwern[0].DeliveyAddress" name="" readonly="readonly">
+  </md-input-container>
+</div>
+</div>
+</md-content>
+</md-card>
+</div>
+<div flex>
+  <div layout="column" layout-md="column" layout-sm="column" layout-gt-sm="column" layout-wrap>
+    <div layout="row" layout-wrap layout-md="row" layout-sm="column">
+      <div flex>
+        <md-card style="height:176px;">
+        <md-card-content style="background:#465661;height:27px;padding:7px;">
+        <div layout="row" layout-align="center center">
+          <span class="totalspan" >MY INCOME</span>
+        </div>
+      <!--   <div layout="row" layout-align="center center">
+          <span class="totalValue">2,306</span>
+        </div> -->
+      </md-card-content>
+      <md-content flex style="overflow:hidden;">
+      <div layout="row" layout-align="space-around start" style="margin-top:19px;">
+        <div style="color:#b6b6b6"><p class="p">THIS MONTH</p></div>
+        <div style="color:#b6b6b6"><p class="p">LAST MONTH</p></div>
+        <div style="color:#b6b6b6"><p class="p">LAST 3 MO</p></div>
+      </div>
+      <div layout="row" layout-align="space-around start" style="margin-top:6px;">
+        <div><b class="b">0</b></div>
+        <div><b class="b">0</b></div>
+        <div><b class="b">0</b></div>
+      </div>
+    </md-content>
+  </md-card>
+</div> 
+
+<div flex>
+  <md-card style="height:176px;">
+  <md-card-content style="background:#465661;height:27px;padding:7px;">
+  <div layout="row" layout-align="center center">
+    <span class="totalspan">TOTAL PAYMENTS</span>
+  </div>
+<!--   <div layout="row" layout-align="center center">
+    <span class="totalValue">13,605</span>
+  </div> -->
+</md-card-content>
+<md-content flex style="overflow:hidden;">
+<div layout="row" layout-align="space-around start" style="margin-top:19px;">
+  <div style="color:#b6b6b6;"><p class="p" >THIS MONTH</p></div>
+  <div style="color:#b6b6b6;"><p class="p" >LAST MONTH</p></div>
+  <div style="color:#b6b6b6;"><p class="p" >LAST 3 MO</p></div>
+</div>
+<div layout="row" layout-align="space-around start" style="margin-top:6px;">
+  <div><b class="b" >0</b></div>
+  <div><b class="b" >0</b></div>
+  <div><b class="b" >0</b></div>
+</div>
+</md-content>
+</md-card>
+</div>
+</div>
+
+<div layout="row" layout-wrap layout-md="row" layout-sm="column">
+  <div flex>
+    <md-card style="height:138px;border:1px solid #009688; background:#009688;">
+    <md-card-content style="height:135px;padding:7px;">
+    <div layout="row" layout-align="center center">
+      <span class="totalspan">TOTAL OUTSTANDING</span>
+    </div>
+    <div layout="row" layout-align="center center">
+      <span class="totalValue1">0</span>
+    </div>
+  </md-card-content>
+</md-card>
+</div>
+
+<div flex>
+  <md-card style="height:138px;border:1px solid #FF9800; background:#FF9800;">
+  <md-card-content style="height:135px;padding:7px;">
+  <div layout="row" layout-align="center center">
+    <span class="totalspan">MY WALLET</span>
+  </div>
+  <div layout="row" layout-align="center center">
+    <span class="totalValue1">0</span>
+  </div>
+</md-card-content>
+</md-card>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--table-->
+<div layout="row" layout-sm="column" layout-fill layout-padding>
+  <div flex>
+   <md-card style="height:487px;">
+   <md-card-content style="background:#465661;height:23px;">
+   <span style="margin-top:5px;color:white;font-size: 18px;">LEDGER</span>
+ </md-card-content>
+ <md-content flex layout-padding style="overflow:hidden;">
+ <div layout layout-margin>
+  <div flex="20"><span>Date</span></div>
+  <div flex layout="row" layout-align="center center"><span style="font-weight:bold;">Type</span></div>
+  <div flex layout="row" layout-align="center center"><span style="font-weight:bold;">Reference No</span></div>
+  <div flex layout="row" layout-align="center center"><span style="font-weight:bold;">Amount</span></div>
+</div>
+<div layout layout-margin ng-repeat="led in LedgerOwern">
+  <div flex="20" layout="row" layout-align="start center"><label>{{led.TranDate}}</label></div>
+  <div flex layout="row" layout-align="center center"><label>{{led.TranType}}</label></div>
+  <div flex layout="row" layout-align="center center"><label>{{led.TranNo}}</label></div>
+  <div flex layout="row" layout-align="center center"><label>{{led.Amount}}</label></div>
+</div>
+</md-content>
+</md-card>
+</div>
+</div>
+
+</div>
+</div>
+
+<script src="/../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="/../bower_components/pdfmake/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="/../bower_components/pdfmake/build/vfs_fonts.js"></script>
+<script src="/../bower_components/angular-animate/angular-animate.js"></script>
+<script src="/../bower_components/angular-aria/angular-aria.js"></script>
+<script src="/../bower_components/angular-material/angular-material.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="/../uimicrokernel/uimicrokernel.js"></script>
+<script src="/../js/directivelibrary.js"></script>
+<script src="js/controllers/myAccount.js"></script>
+</body>
+</html>

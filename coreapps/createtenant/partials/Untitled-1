@@ -1,0 +1,52 @@
+<md-content layout-padding style="padding: 18px;" layout="row" layout-sm="column">
+            <div flex>
+                <md-input-container>
+                    <label>Company Name</label>
+                    <input type="text" name="txt_companyname" ng-model="tenant.OtherData.CompanyName" required="" />
+                </md-input-container>  
+                <div ng-show="tenantRegForm.$submitted || tenantRegForm.txt_companyname.$touched">
+                    <div ng-show="tenantRegForm.txt_companyname.$error.required"></div>
+                </div>
+                <md-input-container>
+                    <label>Tenant Name</label>
+                    <input type="text" name="txt_tenantname" ng-model="tenant.TenantID" required>
+                </md-input-container>
+                <label style="font:normal normal normal 15.3333330154419px/normal Arial;
+;color:#9E9E9E;padding:3px">
+                    Access Level
+                </label>
+                <md-radio-group layout="row" ng-model="data.group1" required>
+                    <md-radio-button value=false>Public</md-radio-button>
+                    <md-radio-button value=true>Private</md-radio-button>
+                </md-radio-group>
+                <md-input-container style="width:80%">
+                    <md-select name="dpd_model" placeholder="Business Model" ng-model="tenant.OtherData.catagory" required>
+                        <md-option ng-value="model.value" ng-repeat="model in businessModels">{{model.name}}</md-option>
+                    </md-select>
+                    <div ng-show="tenantRegForm.$submitted || tenantRegForm.dpd_model.$touched">
+                        <div ng-show="tenantRegForm.dpd_model.$error.required"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container style="width:80%">
+                    <md-select name="dpd_shell" placeholder="Shell Type" ng-model="tenant.Shell" required>
+                        <md-option value="shell/index.html#/duoworld-framework/dock">Duo Shell</md-option>
+                        <md-option value="applauncher">12thdoor Shell</md-option>
+                        <md-option value="Duodigin">Duo Digin</md-option>
+                        <md-option value="devstudio">Dev Studio</md-option>
+                        <md-option value="processdesigner">Process Manager</md-option>
+                    </md-select>
+                    <div ng-show="tenantRegForm.$submitted || tenantRegForm.dpd_shell.$touched">
+                    <div ng-show="tenantRegForm.dpd_shell.$error.required"></div>
+                    </div>
+                </md-input-container>
+        </div>
+        <div id="box" style="border:#E0E0E0 2px dashed;max-width:400px;max-height:300px;min-height:300px;object-fit: cover" layout flex layout-align="center center" ng-click="uploadImage()">
+            <p layout-align="center center" style="" ng-if="prev_img == '' || prev_img == null ">
+                click here to change tenant image
+            </p>
+            <img src="{{prev_img}}" />
+        </div>
+        <input id="profile-image-upload" file-model="myFile" 
+               onchange="angular.element(this).scope().file_changed(this)" type="file"
+               style="position:absolute;left:-9999px" />
+    </md-content>

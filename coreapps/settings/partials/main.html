@@ -1,0 +1,25 @@
+<!--START OF HEADER CONTAINER-->
+<div style="width:100%;position:fixed;z-index:2;background:#004682;">
+	<div style="max-width: 960px;right: 0;left: 0;margin:auto;margin-top:10px;padding-left:20px; padding-right:20px;">
+		<!--START OF TABS SECTION-->
+		<md-whiteframe class="md-whiteframe-z1" layout="row" layout-sm="column" style="background:rgb(250,250,250); z-index:2;border-radius:2px 2px 0px 0px">
+			<md-tabs md-stretch-tabs style="width:100%" md-selected="$root.selectedPage" ng-click="changeTab($root.selectedPage)">
+				<md-tab label="Users"></md-tab> 
+				<md-tab label="Pending"></md-tab>
+				<md-tab label="Groups"></md-tab>
+				<md-tab label="Share Apps"></md-tab> 
+				<md-tab label="My Tenants"></md-tab> 
+
+			</md-tabs>				
+		</md-whiteframe>
+		<!--END OF TABS SECTION-->
+
+	</div>
+</div>
+<!--END OF HEADER CONTAINER-->
+
+<!--START OF BODY CONTAINER-->
+<div class="span12 ui-view-container">
+	<div class="container" ui-view  viewcss></div>   
+</div>
+<!--END OF BODY CONTAINER-->

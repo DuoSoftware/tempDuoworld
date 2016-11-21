@@ -1,0 +1,258 @@
+/*platformentry-styles*/
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+md-input-container{
+	margin:7px !important;
+}
+
+#platformentry-container{
+	position:absolute;
+	top:0;
+	left:0;
+	position: relative;
+	height: 100%;
+	overflow:hidden;
+	background-size: cover;
+	background: linear-gradient(218deg, #FF0000, #18538a, #65e0e1);
+	background-size: 400% 400%;
+	-webkit-animation: animatedBg 26s ease infinite;
+	-moz-animation: animatedBg 26s ease infinite;
+	-o-animation: animatedBg 26s ease infinite;
+	animation: animatedBg 26s ease infinite; 
+}
+
+#viewContainer{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;      
+}
+
+.commonContentShell{
+	width:auto;
+	height:auto;
+	min-width:360px; 
+	min-height:300px;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	padding:10px;  
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+}
+
+#cygilContainer{
+	width:100%; 
+	/*border-bottom:1px solid rgba(0,0,0,0.1); */
+}
+
+#cygilContainer img{
+	max-width:100%;
+	padding-bottom:10px;
+}
+
+#successContainer{
+	width:100%;
+	padding:20px 0px 30px 0px;    
+}
+
+#formContainer{
+	padding-top:5px;
+	padding-bottom:16px;  
+	width:98%;    
+}
+
+#formContainer form{
+	width:100%; 
+}
+
+.md-actions{
+	margin-top:18px !important; 
+}
+
+.secondaryAction{
+	width:100%;
+	height:auto;
+	font-size:14px; 
+	font-weight:700; 
+}
+
+.secondaryAction span{
+	display:block; 
+	cursor:pointer;
+	padding:5px 0px 5px 0px;   
+}
+
+.secondaryAction span:nth-child(1){
+	font-size:16px; 
+	font-weight:normal; 
+	color:rgba(150,150,150,1); 
+}
+
+.secondaryAction span i{ 
+	color:rgb(63,81,181);
+}
+
+.secondaryAction span:nth-child(2){
+	color:#FF4081;  
+}
+
+.socialActions{
+	width:100%;
+	height:auto;   
+}
+
+.socialActions span{
+	padding:5px 0px 5px 0px;
+	color:rgba(150,150,150,1);
+}
+
+.socialBtnContainer{ 
+	width:100%;
+	height:48px;  
+}
+
+.facebook_btn{
+	color:#2e79db !important;
+}
+
+.twitter_btn{
+	color:#60b8fd !important;
+}
+
+.google_btn{
+	color:#f13c37 !important;
+}
+
+.loadInidcatorContainer{
+	height:100px;
+	width:auto;  
+}
+
+.loadInidcatorContainer span{
+	margin-right:30px; 
+	color:rgba(150,150,150,1);
+}
+
+/*Password strength meter styling*/
+
+#password-strength-indicator {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 5px;
+    padding: 0 10px;
+    cursor:pointer;
+}
+
+#password-strength-indicator span {
+    display: block;
+    height: 5px;
+    margin-bottom: 2px;
+    width: 5px;
+    border-radius: 5px;
+    background: #EDF0F3
+}
+.has-feedback .form-control-feedback {
+    top: 0;
+    left: 0;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    color: #555
+}
+
+.has-feedback .form-control {
+    padding-left: 42.5px
+}
+
+/*Transition Animations*/
+
+#viewContainer.ng-enter{
+	z-index:8888;
+}		
+
+#viewContainer.ng-leave{
+	z-index:9999;
+}
+
+#viewContainer.ng-enter{
+	-webkit-animation: scaleUp .7s cubic-bezier(.55,0,.1,1);
+	animation: scaleUp .7s cubic-bezier(.55,0,.1,1);
+}
+
+#viewContainer.ng-leave{
+	-webkit-animation: scaleDown .7s cubic-bezier(.55,0,.1,1);
+	animation: scaleDown .7s cubic-bezier(.55,0,.1,1);
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+} 
+ 
+.animate-enter {
+    top: -100%;
+}
+.animate-enter.animate-enter-active {
+    top: 0;
+}
+ 
+.animate-leave {
+    top: 0;
+}
+.animate-leave.animate-leave-active{
+    top: 100%;
+}
+
+
+/*Animation Hooks*/
+
+@-webkit-keyframes animatedBg {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@-moz-keyframes animatedBg {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@-o-keyframes animatedBg {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@keyframes animatedBg { 
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+
+@-webkit-keyframes scaleDown {
+	from { }
+	to { opacity: 0; -webkit-transform: scale(.8); }
+}
+@keyframes scaleDown {
+	from { }
+	to { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+}
+
+@-webkit-keyframes scaleUp {
+	from { opacity: 0; -webkit-transform: scale(.8); }
+}
+@keyframes scaleUp {
+	from { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+}

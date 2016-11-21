@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width">
+	<title>My Tenants</title>
+	<meta name="version" description="1.0.2">
+	<link rel="stylesheet" type="text/css" href="/bower_components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/child_app_styles.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/directive_library.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+
+</head>
+<body layout="column"  ng-cloak>
+
+	<!--Background banner with parallax effect-->
+	<md-background-banner color="#004682" height="300px"> </md-background-banner>
+	<md-content style="background:transparent">
+    	<div ui-view ng-init="viewPortHeight='700px'"></div>
+    </md-content>
+    
+    <div style="position: fixed;bottom: 50%;right: 50%;z-index:2000;margin:-68px;" ng-show="showGlobalProgress">
+		<md-progress-circular md-mode='indeterminate' md-diameter="150"></md-progress-circular>
+	</div>
+
+
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="/bower_components/angular-material/angular-material.min.js"></script>
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+	
+	<script src="js/cloudcharge.js"></script>
+	<script src="/uimicrokernel/uimicrokernel.js"></script>
+	<script src="/js/directivelibrary.js"></script>
+	
+	<script src="js/controllers/js.js"></script>
+	<script src="js/controllers/addCardCtrl.js"></script>
+	<script src="js/controllers/myCardsCtrl.js"></script>
+	<script src="js/controllers/components.js"></script>
+	
+</body>
+</html>

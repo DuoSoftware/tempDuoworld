@@ -1,0 +1,74 @@
+<!-- signin-partial.html -->
+<md-card id="partial-animation" class="commonContentShell md-whiteframe-12dp" layout="column" layout-align="start center" style="max-width:425px;margin: 0 auto" ng-switch="signupsuccess">
+	<section id="cygilContainer" layout="column" layout-align="center center">
+		<img src="loginDuo.png"/>
+	</section>
+	<section id="formContainer" layout="column" layout-align="start start" ng-switch-when="false">
+		<form name="signupForm" ng-submit="submitSignupDetails(signupdetails)" autocomplete="off">
+			
+			<md-input-container md-no-float class="md-block">
+				<input required id="name" type="text" name="userName" placeholder="name*" ng-model="signupdetails.Name">
+				<div ng-messages="signupForm.userName.$error">
+					<div ng-message="required">your name is required.</div>
+				</div>
+			</md-input-container> 	
+			<md-input-container md-no-float class="md-block">
+				<input required="" id="email" type="email" name="userEmail" placeholder="email*" ng-model="signupdetails.EmailAddress" ng-pattern="/^.+@.+\..+$/" ng-disabled="isinvited">
+				<div ng-messages="signupForm.userEmail.$error" role="alert">
+					<div ng-message-exp="['required','pattern']">a valid email address is required.</div>
+				</div>
+			</md-input-container>
+	
+			
+			<md-input-container md-no-float class="md-block">
+				<input password-strength-indicator required id="password" type="password" name="userPassword" placeholder="password*" ng-model="signupdetails.Password" ng-pattern="/^[^<>;\/?,']+$/">
+				<div ng-messages="signupForm.userPassword.$error" multiple>
+					<div ng-message="required" class="my-message">A valid password is required.</div>
+					<div ng-message="pattern" class="my-message">password cannot contain ? < > ; / , ' ")</div>
+				</div>
+			</md-input-container>
+			
+			<div layout="row" layout-align="center center">
+				<div vc-recaptcha
+					 theme="'light'"
+					 key="model.key"
+					 on-create="setWidgetId(widgetId)"
+					 on-success="setResponse(response)"
+					 on-expire="cbExpiration()"></div>
+			</div>	
+			<div class="socialActions" layout="column" layout-align="start start" ng-init="signupdetails.Terms = false">
+				<md-checkbox ng-model="signupdetails.Terms" aria-label="Checkbox 1" style="margin:10px;font-size: 14px;">
+					 Do you agree to the <i style="color: rgb(63,81,181)" ng-click="switchToTermsAndConditions();$event.stopPropagation()">Terms and Conditions</i>?
+				</md-checkbox>
+			</div>
+			<div class="md-actions" layout="column" layout-align="center center">
+				<md-button class="md-raised md-primary" style="width:100%" type="submit" ng-disabled="signupForm.$invalid"><span class="loginBtnLabel">sign up</span></md-button>
+			</div>
+		</form>
+		<!--div class="socialActions" layout="column" layout-align="center center">
+			<span>or signup with your social account<span>
+		</div>
+		<div class="socialBtnContainer" layout="row" layout-align="center center">
+			<md-button md-no-ink class="md-primary facebook_btn">
+				<md-icon md-svg-src="facebook-box.svg" style="fill:#2e79db;"></md-icon>
+				Facebook
+			</md-button>
+			<md-button  md-no-ink class="md-primary twitter_btn">
+				<md-icon md-svg-src="twitter-box.svg" style="fill:#60b8fd;"></md-icon>
+				Twitter
+			</md-button>
+			<md-button md-no-ink class="md-primary google_btn">
+				<md-icon md-svg-src="google-plus-box.svg" style="fill:#f13c37;"></md-icon>
+				Google +
+			</md-button>
+		</div-->
+		<div class="secondaryAction" layout="column" layout-align="center center">
+			<span ng-click="switchEntryView('signin')">already a member? <i>Sign in</i></span>
+		</div>
+	</section>
+	<section id="successContainer" layout="column" layout-align="center center" ng-switch-when="true">
+		<img src="success.png" style="width:100px; height:100px; opacity:0.2;"/>
+		<span style="font-size:18px; width:330px; text-align:center; padding:20px 0px 10px 0px;">You have been successfully registered to DuoWorld.</span>
+		<span style="font-size:16px; width:330px; text-align:center; padding:10px 0px 10px 0px; color:rgb(63,81,181);" ng-click="locateUserEmail()">Please check your email to get started.</span>
+	</section>
+</md-card>

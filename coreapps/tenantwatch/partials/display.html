@@ -1,0 +1,124 @@
+<div style="marign:10px;padding:10px;">
+<tabset>
+	<tab heading="{{tab.caption}}" ng-repeat="tab in displayInfo" id="tabs-{{tab.displayType}}">
+	<!--** Start Commands tab**-->
+	      <div ng-if="tab.displayType == 'commands'">
+
+	          <div ng-repeat="content in tab.contents">
+	              <div ng-if="content.displayType == 'command'">
+	                    <!--table Start-->
+	                <form name="userForm">
+					<header>
+						<h3>{{content.caption}}</h3>
+					</header>
+					<table width="100%">
+						<tbody>
+							<tr ng-repeat="parameter in content.parameters">
+								<td style="width:200px" valign="top">{{parameter.value.key}}</td>
+								<td><input name="couchbase_Url" ng-model="FileContent.couchbase_Url" type="text" style="width:100%"></td>
+							</tr>
+						</tbody>
+					</table>
+					</form>
+	              </div>
+	          </div>
+	      </div>
+	      <!--** End Commands tab**-->
+	  <!--** Start configuration tab**-->
+	  <div ng-if="tab.displayType == 'configs'">
+	      <div ng-repeat="content in tab.contents">
+			<article class="module width_full">
+	        	<div ng-if="content.displayType=='config'" class="module_content">
+	                <form name="userForm">
+					<table width="100%">
+						<tbody>
+							<tr><td colspan="2">
+								<header>
+									<h3>{{content.caption}}</h3>
+								</header>
+							</td></tr>
+							<tr ng-repeat="parameter in content.parameters">
+								<td style="width:200px" valign="top">
+									<input ng-model="parameter.key" style="width:100%"/>
+								</td>
+								<td>
+									
+			                        <div class="animate-switch-container" ng-switch on="getType(parameter.value)">
+			                            <div class="animate-switch" ng-switch-when="object">
+			                              
+				                              <div ng-repeat="key in getKeys(parameter.value)">
+				                                <h4>
+				                     				<input ng-model="key" style="width:100%"/>
+				                                </h4>
+
+				                              <table width="100%">
+				                              	<tr ng-repeat="value in getKeys(parameter.value[key])">
+				                              		<td width="10%">&nbsp;</td>
+				                              		<td width="30%">
+				                              			<input ng-model="value" style="width:100%"/>
+				                              		</td>
+				                              		<td width="60%"><input ng-model="parameter.value[key][value]" style="width:100%"/></td>
+				                              	</tr>
+				                              </table>
+				                              </div>
+			                            </div>
+			                            <div class="animate-switch" ng-switch-default>
+			                            	<input ng-model="parameter.value" style="width:100%"/>
+		                            	</div>
+			                        </div>
+
+									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					</form>
+		        </div>
+
+		        <input type="button" value="Update Settings" ng-click="updateSettings(content.configType, content.caption, content.parameters)"/>
+	        </article>
+
+	        
+	      </div>
+	      
+	  </div>
+	  <!--**End configuration tab**-->
+	  <!--**Start inside info tab**-->
+	  <div ng-if="tab.displayType == 'info'">
+	      <div ng-repeat="content in tab.contents">
+	        <div ng-if="content.displayType == 'chart'">
+	              <md-content class="md-padding">
+	                <form name="userForm">
+	                <h1>{{content.name}}</h1>
+	                  <div>
+						  <nvd3-line-chart
+						            data="displayData[content.name]"
+						            id="chart-{{tab.displayId}}-{{content.name}}"
+						            height="300"
+						            width="600"
+						            showXAxis="true"
+						            showYAxis="true"
+						            tooltips="false"
+						            interactive="false"
+						            objectEquality="true"
+						            useInteractiveGuideline="false"
+									>
+						        <svg></svg>
+						    </nvd3-line-chart>
+					    </div>
+	                </form>
+	             </md-content>
+	        </div>
+	      </div>
+	  </div>
+	  <!--**End inside info tab**-->
+
+	  <div ng-if="tab.displayType == 'output'">
+	  	<div>
+	  		<p style="font-family:Lucida Console;font-size:10px;" ng-repeat="log in logInfo">{{log.value}}</p>
+	  	</div>
+	  </div>
+	  <!--**End inside info tab**-->
+	</tab>
+<tabset>
+</div>

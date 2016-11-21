@@ -1,0 +1,44 @@
+<!--START OF HEADER CONTAINER-->
+<div style="width:98.5%;position:fixed;z-index:2;background:#004682;right:10px;">
+	<div style="max-width: 960px;right: 0;left: 0;margin:auto;margin-top:10px">
+	
+	<!--START OF FILTER SECTION-->
+	<md-whiteframe class="md-whiteframe-z1" layout="row" layout-sm="column" style="background:rgb(250,250,250); z-index:2;border-radius:2px 2px 2px 2px">
+			
+		<div layout="row" style="margin: 10px;width:190px">
+					<img style="margin-left: 10px;border-radius:100px" src="/img/material_alperbert/avatar_tile_n_28.png"/>
+					<div style="margin-top: 4px;margin-left: 20px;">Navigation Menu</div>
+				</div>
+				
+				<md-button ng-click="goTenentInfo()">
+				   <md-icon md-svg-src="img/ic_navigate_next_24px.svg" style="padding-right: 10px;"></md-icon>
+				   <span class="navBtn">Add Tenant Information</span>
+				</md-button>
+				<md-button ng-show="showPricing==true">
+				   <md-icon md-svg-src="img/ic_navigate_next_24px.svg" style="padding-right: 10px;"></md-icon>
+				   <span class="navBtn">Select Plan</span>
+				</md-button>
+	</md-whiteframe>
+	<!--END OF FILTER SECTION-->
+	</div>
+</div>
+<!--END OF HEADER CONTAINER-->
+
+<form name="editForm" ng-submit="submit($event)">
+
+	<div ui-view id="form-views"></div>
+
+</form>
+
+<div class="lock-size" layout="row">
+	<md-fab-speed-dial md-open="demo.isOpen" md-direction="up" ng-class="demo.selectedMode" style="position:fixed;bottom:20px;right:20px;">
+    	<md-fab-trigger>
+        	<md-button aria-label="menu" class="md-fab " style="background-color:#db4437;" href="#/main/tabone">
+        		<md-icon md-svg-src="img/ic_visibility_24px.svg" style="width:30px;" ></md-icon>
+        		<md-tooltip md-direction="left">View Tenants</md-tooltip>
+        	</md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</div> 
